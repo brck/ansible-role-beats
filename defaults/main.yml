@@ -67,8 +67,14 @@ beats_client_filebeat_logging:
     name: filebeat.log
     keepfiles: 2
 
+# Enable Filebeat modules
+# https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-modules-overview.html
+beats_client_filebeat_modules: []
+
+
 beats_client_filebeat_config:
   filebeat.prospectors: "{{ beats_client_filebeat_combined_logfiles }}"
+  filebeat.modules: "{{ beats_client_filebeat_modules }}"
   output: "{{ beats_client_output }}"
   logging: "{{ beats_client_filebeat_logging }}"
 
